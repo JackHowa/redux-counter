@@ -29,11 +29,15 @@ const reducer = (state = initialState, action) => {
     return {
       count: state.count + 1,
     };
-  } else if (action.type === DECREMENT) {
+  }
+
+  if (action.type === DECREMENT) {
     return {
       count: state.count - 1,
     };
-  } else if (action.type === RESET) {
+  }
+
+  if (action.type === RESET) {
     return {
       count: 0,
     };
