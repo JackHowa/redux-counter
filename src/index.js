@@ -12,15 +12,15 @@ const initialState = {
   count: 0,
 };
 
-const incrementValue = () => ({
+const increment = () => ({
   type: INCREMENT,
 });
 
-const decrementValue = () => ({
+const decrement = () => ({
   type: DECREMENT,
 });
 
-const resetValue = () => ({
+const reset = () => ({
   type: RESET,
 });
 
@@ -71,18 +71,13 @@ const mapStateToProps = state => {
 };
 
 // points to store.dispatch
-const mapDispatchToProps = dispatch => {
-  return {
-    increment() {
-      dispatch(incrementValue());
-    },
-    decrement() {
-      dispatch(decrementValue());
-    },
-    reset() {
-      dispatch(resetValue());
-    },
-  };
+// pass in an object if you don't need props
+// this is not recreating the action creators
+// performance benefit
+const mapDispatchToProps = {
+  increment,
+  decrement,
+  reset,
 };
 
 // returns a function waiting for a react component
